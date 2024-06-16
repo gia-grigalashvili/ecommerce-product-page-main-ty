@@ -23,21 +23,31 @@ function Img() {
   };
 
   return (
-    <Slider>
-      <ImageContainer>
-        <Button className="previous" onClick={handlePrevious}>
-          <img src={Previous} alt="Previous" />
-        </Button>
-        <Image src={images[currentIndex]} alt={`Product ${currentIndex + 1}`} />
-        <Button className="next" onClick={handleNext}>
-          <img src={Next} alt="Next" />
-        </Button>
-      </ImageContainer>
-    </Slider>
+    <div>
+      <Slider>
+        <ImageContainer>
+          <Button className="previous" onClick={handlePrevious}>
+            <img src={Previous} alt="Previous" />
+          </Button>
+          <Image
+            src={images[currentIndex]}
+            alt={`Product ${currentIndex + 1}`}
+          />
+          <Button className="next" onClick={handleNext}>
+            <img src={Next} alt="Next" />
+          </Button>
+        </ImageContainer>
+      </Slider>
+
+      <div></div>
+    </div>
   );
 }
 
-const Slider = styled.div``;
+const Slider = styled.div`
+  width: 375px;
+  height: 330px;
+`;
 
 const ImageContainer = styled.div`
   position: relative;

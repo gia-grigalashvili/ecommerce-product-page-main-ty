@@ -118,6 +118,8 @@ const Counterdiv = styled.div`
   align-items: center;
   background: #f6f8fd;
   margin-top: 20px;
+  width: 327px;
+  height: 56px;
 
   .plus {
     width: 12px;
@@ -138,7 +140,7 @@ const ADDCARD = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 327px;
   gap: 15px;
   height: 56px;
   background: #ff7e1b;
