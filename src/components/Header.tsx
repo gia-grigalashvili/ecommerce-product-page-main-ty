@@ -13,7 +13,7 @@ function Header() {
   };
 
   return (
-    <HeaderDiv isOpen={isOpen}>
+    <HeaderDiv>
       <Section1>
         <img className="burger" src={Burger} alt="Menu" onClick={toggleMenu} />
         <img src={Logo} alt="Logo" />
@@ -43,7 +43,6 @@ const HeaderDiv = styled.div`
   padding: 20px;
   justify-content: space-between;
   position: relative;
-  position: ${(props) => (props.isOpen ? "fixed" : "static")};
   width: 100%;
 `;
 
@@ -72,32 +71,21 @@ const Section2 = styled.div`
 `;
 
 const Nav = styled.nav`
-  z-index: 99;
-  margin-top: -60px;
+  z-index: 10; /* Ensure nav stays above the header and other content */
+
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 60px;
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 60%;
+  width: 50%;
   height: 100vh;
   background: #fff;
-
   transform: translateX(-100%);
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
-
-  @media (min-width: 740px) {
-    border-bottom: 1px solid gray;
-    border-bottom: unset;
-    padding: 40px;
-    z-index: 99;
-  }
 
   &.open {
     transform: translateX(0);
-    z-index: 10;
-    position: fixed;
   }
 
   ul {
@@ -105,7 +93,6 @@ const Nav = styled.nav`
     gap: 20px;
     display: flex;
     flex-direction: column;
-    background: #fff;
     padding: 20px;
     margin: 0;
 
@@ -129,9 +116,9 @@ const Nav = styled.nav`
     cursor: pointer;
     font-family: "Kumbh Sans";
     font-size: 18px;
-    font-style: normal;
     font-weight: 700;
-    line-height: 26px; /* 144.444% */
+    line-height: 26px;
+
     @media (min-width: 770px) {
       font-size: 11px;
       color: #acacac;
