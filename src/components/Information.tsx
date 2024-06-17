@@ -29,15 +29,17 @@ function Information() {
         </div>
         <p>$250.00</p>
       </Money>
-      <Counterdiv>
-        <img onClick={handclick2} className="minus" src={Minus} alt="" />
-        <h3>{count}</h3>
-        <img onClick={handclick} className="plus" src={Plus} alt="" />
-      </Counterdiv>
-      <ADDCARD>
-        <img src={Card} alt="" />
-        <h1>Add to cart</h1>
-      </ADDCARD>
+      <COUNTADDCARD>
+        <Counterdiv>
+          <img onClick={handclick2} className="minus" src={Minus} alt="" />
+          <h3>{count}</h3>
+          <img onClick={handclick} className="plus" src={Plus} alt="" />
+        </Counterdiv>
+        <ADDCARD>
+          <img src={Card} alt="" />
+          <h1>Add to cart</h1>
+        </ADDCARD>
+      </COUNTADDCARD>
     </Infro>
   );
 }
@@ -47,6 +49,9 @@ const Infro = styled.div`
   gap: 15px;
   justify-content: center;
   padding: 20px;
+  @media (min-width: 770px) {
+    max-width: 470px;
+  }
   p {
     color: #ff7e1b;
     font-family: "Kumbh Sans";
@@ -79,6 +84,11 @@ const Money = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 770px) {
+    flex-direction: column;
+    align-items: unset;
+    gap: 20px;
+  }
   .inform {
     display: flex;
     align-items: center;
@@ -117,7 +127,7 @@ const Counterdiv = styled.div`
   border-radius: 10px;
   align-items: center;
   background: #f6f8fd;
-  margin-top: 20px;
+
   width: 327px;
   height: 56px;
 
@@ -157,6 +167,15 @@ const ADDCARD = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+  }
+`;
+const COUNTADDCARD = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (min-width: 770px) {
+    flex-direction: row;
+    align-items: center;
   }
 `;
 export default Information;

@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import "./App.css";
 import Header from "./components/Header";
 import Img from "./components/Img";
@@ -6,10 +7,21 @@ function App() {
   return (
     <>
       <Header></Header>
-      <Img></Img>
-      <Information></Information>
+      <Maindvi>
+        <Img></Img>
+        <Information></Information>
+      </Maindvi>
     </>
   );
 }
-
+const Maindvi = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 770px) {
+    flex-direction: row;
+    gap: 120px;
+  }
+`;
 export default App;

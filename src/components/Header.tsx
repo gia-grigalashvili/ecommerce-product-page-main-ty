@@ -75,16 +75,24 @@ function Header() {
 const HeaderDiv = styled.div`
   display: flex;
   padding: 20px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   width: 100%;
+  @media (min-width: 770px) {
+    justify-content: space-evenly;
+  }
 `;
 
 const Section1 = styled.div`
   display: flex;
   gap: 20px;
+
   align-items: center;
+
+  @media (min-width: 770px) {
+    gap: 50px;
+  }
 
   .burger {
     width: 16px;
@@ -101,11 +109,19 @@ const Section2 = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
-
+  align-items: center;
+  @media (min-width: 770px) {
+    gap: 40px;
+  }
   .profile {
     width: 26px;
     height: 26px;
     border-radius: 50%;
+    @media (min-width: 770px) {
+      width: 50px;
+      height: 50px;
+      flex-shrink: 0;
+    }
   }
 
   position: relative; /* Ensure cart details are positioned relative to Section2 */
@@ -186,8 +202,8 @@ const Nav = styled.nav`
     line-height: 26px;
 
     @media (min-width: 770px) {
-      font-size: 14px;
-      color: #acacac;
+      font-size: 15px;
+      color: #69707d;
     }
   }
 `;
