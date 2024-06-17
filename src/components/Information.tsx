@@ -3,8 +3,7 @@ import Minus from "/public/images/icon-minus.svg";
 import Plus from "/public/images/icon-plus.svg";
 import Card from "/public/images/icon-cart.svg";
 import { useState } from "react";
-function Information() {
-  const [count, setcount] = useState(0);
+function Information({ setcount, count }) {
   const handclick = () => {
     setcount(count + 1);
   };
@@ -154,6 +153,7 @@ const ADDCARD = styled.div`
   gap: 15px;
   height: 56px;
   background: #ff7e1b;
+  cursor: pointer;
   box-shadow: 0px 20px 50px -20px #ff7e1b;
   img {
     width: 17.457px;

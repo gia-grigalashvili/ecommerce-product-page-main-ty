@@ -7,7 +7,7 @@ import profile from "/public/images/image-avatar.png";
 import Close from "/public/images/icon-close.svg";
 import Chose from "/public/images/image-product-1-thumbnail.jpg";
 
-function Header() {
+function Header({ count }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -39,7 +39,15 @@ function Header() {
       </Section1>
       <Section2>
         <div className="cart-container">
-          <img src={cart} alt="Cart" onClick={toggleCart} />
+          <div className="counterr">
+            <img src={cart} alt="Cart" onClick={toggleCart} />
+            {count > 0 && (
+              <div className="countp">
+                <p>{count}</p>
+              </div>
+            )}
+          </div>
+
           {isCartOpen && (
             <CartDetails>
               <h1>Cart</h1>
@@ -53,7 +61,7 @@ function Header() {
                     <div className="cardinfo">
                       <h2>Fall Limited Edition Sneakers</h2>
                       <div className="countt">
-                        <p>$125.00 x 3</p>
+                        <p>$125.00 x {count}</p>
                         <h6>$375.00</h6>
                       </div>
                     </div>
@@ -110,6 +118,7 @@ const Section2 = styled.div`
   gap: 20px;
   align-items: center;
   align-items: center;
+  cursor: pointer;
   @media (min-width: 770px) {
     gap: 40px;
   }
@@ -125,6 +134,23 @@ const Section2 = styled.div`
   }
 
   position: relative; /* Ensure cart details are positioned relative to Section2 */
+
+  .counterr {
+    display: flex;
+    .countp {
+      width: 19px;
+      height: 13px;
+      background: #ff7e1b;
+      border-radius: 20px;
+      font-size: 10px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      margin-left: -10px;
+      margin-top: -10px;
+      font-family: "Kumbh Sans";
+    }
+  }
 `;
 
 const Nav = styled.nav`

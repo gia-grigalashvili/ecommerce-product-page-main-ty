@@ -3,13 +3,15 @@ import "./App.css";
 import Header from "./components/Header";
 import Img from "./components/Img";
 import Information from "./components/Information";
+import { useState } from "react";
 function App() {
+  const [count, setcount] = useState(0);
   return (
     <>
-      <Header></Header>
+      <Header count={count}></Header>
       <Maindvi>
         <Img></Img>
-        <Information></Information>
+        <Information count={count} setcount={setcount}></Information>
       </Maindvi>
     </>
   );
