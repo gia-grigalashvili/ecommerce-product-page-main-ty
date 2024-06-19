@@ -3,12 +3,16 @@ import Minus from "/public/images/icon-minus.svg";
 import Plus from "/public/images/icon-plus.svg";
 import Card from "/public/images/icon-cart.svg";
 import { useState } from "react";
+
 function Information({ setcount, count }) {
   const handclick = () => {
     setcount(count + 1);
   };
+
   const handclick2 = () => {
-    setcount(count - 1);
+    if (count > 0) {
+      setcount(count - 1);
+    }
   };
 
   return (
@@ -24,7 +28,7 @@ function Information({ setcount, count }) {
       <Money>
         <div className="inform">
           <h1>$125.00</h1>
-          <p>50%</p>
+          <h5>50%</h5>
         </div>
         <p>$250.00</p>
       </Money>
@@ -42,6 +46,7 @@ function Information({ setcount, count }) {
     </Infro>
   );
 }
+
 const Infro = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,6 +65,9 @@ const Infro = styled.div`
     line-height: normal;
     letter-spacing: 1.846px;
     text-transform: uppercase;
+    @media (min-width: 770px) {
+      font-size: 13px;
+    }
   }
   h1 {
     color: #1d2026;
@@ -68,6 +76,11 @@ const Infro = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: 32px; /* 114.286% */
+    @media (min-width: 770px) {
+      font-size: 44px;
+
+      line-height: 48px; /* 109.091% */
+    }
   }
   h5 {
     color: #69707d;
@@ -75,7 +88,12 @@ const Infro = styled.div`
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
-    line-height: 25px; /* 166.667% */
+    line-height: 25px;
+    @media (min-width: 770px) {
+      font-size: 16px;
+
+      line-height: 26px; /* 162.5% */
+    }
   }
 `;
 
@@ -100,7 +118,7 @@ const Money = styled.div`
       font-weight: 700;
       line-height: normal;
     }
-    p {
+    h5 {
       color: #ff7e1b;
       font-family: "Kumbh Sans";
       font-size: 16px;

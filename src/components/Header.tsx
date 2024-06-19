@@ -19,6 +19,8 @@ function Header({ count }) {
     setIsCartOpen(!isCartOpen);
   };
 
+  const totalPrice = count * 125;
+
   return (
     <HeaderDiv>
       <Section1>
@@ -52,24 +54,27 @@ function Header({ count }) {
             <CartDetails>
               <h1>Cart</h1>
               <div className="information">
-                <div className="inform">
-                  <p>Your cart is empty.</p>
-                </div>
-                <Main2>
-                  <Maindiv>
-                    <img src={Chose} alt="Product Thumbnail" />
-                    <div className="cardinfo">
-                      <h2>Fall Limited Edition Sneakers</h2>
-                      <div className="countt">
-                        <p>$125.00 x {count}</p>
-                        <h6>$375.00</h6>
-                      </div>
-                    </div>
-                  </Maindiv>
-                  <div className="buttton">
-                    <h2>Checkout</h2>
+                {count === 0 ? (
+                  <div className="inform">
+                    <p>Your cart is empty.</p>
                   </div>
-                </Main2>
+                ) : (
+                  <Main2>
+                    <Maindiv>
+                      <img src={Chose} alt="Product Thumbnail" />
+                      <div className="cardinfo">
+                        <h2>Fall Limited Edition Sneakers</h2>
+                        <div className="countt">
+                          <p>$125.00 x {count}</p>
+                          <h6>${totalPrice.toFixed(2)}</h6>
+                        </div>
+                      </div>
+                    </Maindiv>
+                    <div className="buttton">
+                      <h2>Checkout</h2>
+                    </div>
+                  </Main2>
+                )}
               </div>
             </CartDetails>
           )}
@@ -95,7 +100,6 @@ const HeaderDiv = styled.div`
 const Section1 = styled.div`
   display: flex;
   gap: 20px;
-
   align-items: center;
 
   @media (min-width: 770px) {
@@ -116,7 +120,6 @@ const Section1 = styled.div`
 const Section2 = styled.div`
   display: flex;
   gap: 20px;
-  align-items: center;
   align-items: center;
   cursor: pointer;
   @media (min-width: 770px) {
@@ -239,7 +242,6 @@ const CartDetails = styled.div`
   top: 60px;
   right: 0;
   width: 340px;
-  height: 270px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -265,7 +267,6 @@ const CartDetails = styled.div`
         font-size: 16px;
         font-weight: 700;
         line-height: 26px;
-        display: none;
       }
     }
   }
@@ -310,13 +311,15 @@ const Main2 = styled.div`
   flex-direction: column;
   gap: 20px;
   .buttton {
-    width: 270px;
+    width: 312px;
+    height: 56px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 56px;
-    border-radius: 10px;
     background: #ff7e1b;
+    border-radius: 10px;
+
     cursor: pointer;
     h2 {
       color: #fff;

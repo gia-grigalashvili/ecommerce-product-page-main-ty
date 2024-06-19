@@ -24,6 +24,7 @@ const Maindvi = styled.div`
   @media (min-width: 770px) {
     flex-direction: row;
     gap: 120px;
+    margin-top: 30px;
   }
 `;
 export default App;
