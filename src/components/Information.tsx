@@ -1,15 +1,20 @@
+import React from "react";
 import styled from "styled-components";
 import Minus from "/public/images/icon-minus.svg";
 import Plus from "/public/images/icon-plus.svg";
 import Card from "/public/images/icon-cart.svg";
-import { useState } from "react";
 
-function Information({ setcount, count }) {
-  const handclick = () => {
+interface InformationProps {
+  setcount: React.Dispatch<React.SetStateAction<number>>;
+  count: number;
+}
+
+const Information: React.FC<InformationProps> = ({ setcount, count }) => {
+  const handleClickIncrement = () => {
     setcount(count + 1);
   };
 
-  const handclick2 = () => {
+  const handleClickDecrement = () => {
     if (count > 0) {
       setcount(count - 1);
     }
@@ -34,18 +39,28 @@ function Information({ setcount, count }) {
       </Money>
       <COUNTADDCARD>
         <Counterdiv>
-          <img onClick={handclick2} className="minus" src={Minus} alt="" />
+          <img
+            onClick={handleClickDecrement}
+            className="minus"
+            src={Minus}
+            alt="Decrease count"
+          />
           <h3>{count}</h3>
-          <img onClick={handclick} className="plus" src={Plus} alt="" />
+          <img
+            onClick={handleClickIncrement}
+            className="plus"
+            src={Plus}
+            alt="Increase count"
+          />
         </Counterdiv>
         <ADDCARD>
-          <img src={Card} alt="" />
+          <img src={Card} alt="Add to cart" />
           <h1>Add to cart</h1>
         </ADDCARD>
       </COUNTADDCARD>
     </Infro>
   );
-}
+};
 
 const Infro = styled.div`
   display: flex;

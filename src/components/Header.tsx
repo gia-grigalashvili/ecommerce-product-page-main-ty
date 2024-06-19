@@ -7,7 +7,11 @@ import profile from "/public/images/image-avatar.png";
 import Close from "/public/images/icon-close.svg";
 import Chose from "/public/images/image-product-1-thumbnail.jpg";
 
-function Header({ count }) {
+interface HeaderProps {
+  count: number;
+}
+
+const Header: React.FC<HeaderProps> = ({ count }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -83,8 +87,7 @@ function Header({ count }) {
       </Section2>
     </HeaderDiv>
   );
-}
-
+};
 const HeaderDiv = styled.div`
   display: flex;
   padding: 20px;

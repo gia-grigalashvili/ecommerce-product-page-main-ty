@@ -14,7 +14,7 @@ import Product14 from "/public/images/image-product-4-thumbnail.jpg";
 const images = [Product1, Product2, Product3, Product4];
 const thumbnails = [Product11, Product12, Product13, Product14];
 
-function Img() {
+const Img: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +28,7 @@ function Img() {
     );
   };
 
-  const openModal = (index) => {
+  const openModal = (index: number) => {
     setCurrentIndex(index);
     setIsOpen(true);
     document.body.style.opacity = "0.75";
@@ -102,7 +102,7 @@ function Img() {
       )}
     </TWODIV>
   );
-}
+};
 
 const TWODIV = styled.div`
   display: flex;
